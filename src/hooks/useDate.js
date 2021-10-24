@@ -13,6 +13,10 @@ export const useDate = (events, monthCounterWhenScrolled) => {
         // weekdays array needed to get right counting from certain day
         const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         const currentDate = new Date(); // current date in full format
+        // correction of a loadedDate value if page was scrolled
+        if(monthCounterWhenScrolled !== 0){
+            currentDate.setMonth(new Date().getMonth() + monthCounterWhenScrolled);
+        }
         const currentDay = currentDate.getDate(); // current day as integer
         const currentMonth = currentDate.getMonth(); // current month as index (January is 0)
         const currentYear = currentDate.getFullYear(); // current year as integer
@@ -30,10 +34,6 @@ export const useDate = (events, monthCounterWhenScrolled) => {
         // number of padding days that gets splitted from 
         // firstDayOfMonthAsString and searched as index in weekdays
         const paddingDays = weekdays.indexOf(firstDayOfMonthAsString.split(', ')[0]);
-        // correction of a loadedDate value if page was scrolled
-        if(monthCounterWhenScrolled !== 0){
-            currentDate.setMonth(new Date().getMonth() + monthCounterWhenScrolled);
-        }
         // assign text of a shown month/year (top left on a grid)
         setDateDisplay(`${currentDate.toLocaleDateString('en-us', {month: 'long'})} ${currentYear}`);
 
