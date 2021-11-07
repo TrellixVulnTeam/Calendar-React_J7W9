@@ -1,7 +1,6 @@
   body {
-    display: flex;
-    margin-top: 50px;
-    justify-content: center;
+    margin-top: 10px;
+    margin-left: 100px;
     background-color: #FFFCFF;
   }
   button {
@@ -17,20 +16,32 @@
     color: white;
   }
   #header {
+    display: flex;
     padding: 10px;
     color: #d36c6c;
     font-size: 26px;
     font-family: sans-serif;
-    display: flex;
     justify-content: space-between;
   }
   #header button {
     background-color:#92a1d1;
   }
   #mainContainer {
-    /*Main field has 770 pixels for 7 days and 
-    5 by 2 pixels of margin between cells*/
-    width: 770px;
+    display: flex;
+    margin: auto;  
+    justify-content: space-between;
+    width: 1160px;
+    height: 525px;
+  }
+  #utilityContainer{
+    display: table;
+    margin: auto;  
+    height: 525px;
+    width: 560px;
+    padding: 10px;
+  }
+  #gridContainer {
+    width: 525px;
   }
   #weekdaysDisplay {
     width: 100%;
@@ -38,19 +49,19 @@
     color: #247BA0;
   }
   #weekdaysDisplay div {
-    width: 100px;
+    width: 70px;
     padding: 10px;
   }
   #calendarGrid {
     width: 100%;
     margin: auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  
   }
   .day {
-    width: 100px;
+    width: 65px;
     padding: 10px;
-    height: 100px;
+    height: 65px;
     cursor: pointer;
     box-sizing: border-box;
     background-color: white;
@@ -63,8 +74,31 @@
   .day:hover {
     background-color: #e8faed;
   }
-  .day + .currentDay {
+  .currentDay {
+    width: 65px;
+    padding: 10px;
+    height: 65px;
+    cursor: pointer;
+    box-sizing: border-box;
     background-color:#e8f4fa;
+    margin: 5px;
+    box-shadow: 0px 0px 3px #CBD4C2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .outsideDay {
+    width: 65px;
+    padding: 10px;
+    height: 65px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color:#bcbfc0;
+    margin: 5px;
+    box-shadow: 0px 0px 3px #CBD4C2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .event {
     font-size: 10px;
@@ -73,14 +107,13 @@
     color: white;
     border-radius: 5px;
     max-height: 55px;
-    overflow: hidden;
   }
   .padding {
     cursor: default !important;
     background-color: #FFFCFF !important;
     box-shadow: none !important;
   }
-  #newEventModal, #deleteEventModal {
+  #inputForToDoModal{
     z-index: 20;
     padding: 25px;
     background-color: #e8f4fa;
@@ -118,8 +151,40 @@
     top: 0px;
     left: 0px;
     z-index: 10;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     position: absolute;
     background-color: rgba(0,0,0,0.8);
+  }
+  #searchWindow{
+    padding: 25px;
+    background-color: #e8f4fa;
+    box-shadow: 0px 0px 3px black;
+    border-radius: 3px;
+    width: 300px;
+    height: 150px;
+    margin-left: 30px;
+    top: 100px;
+    font-family: sans-serif;
+  }
+  #inputDateSearch {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 0px 3px gray;
+  }
+  #inputNoteWindow {
+    display: block;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    width: 100%;
+    height: calc(50vh - 130px);
+    padding: 10px;
+    resize: none;
+    font-size: inherit;
+    font-family: inherit;
   }

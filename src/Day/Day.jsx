@@ -1,11 +1,20 @@
 import React from 'react';
 
 export const Day = ({day, onClick}) => {
-    const className = `day ${day.value === 'padding' ? 'padding' : ''} ${day.isCurrentDay ? 'currentDay' : ''}`;
+    let className;
+    if(day.isOutsideDay){
+        className = 'outsideDay';
+    }
+    else if(day.isCurrentDay){
+        className = 'currentDay';
+    }
+    else{
+        className = 'day';
+    }
     return(
-        <div onClick={onClick} className= {className}>  
-            {day.value === 'padding' ? '' : day.value}
-            {day.event && <div className='event'>{day.event.title}</div>}
+        <div onClick={onClick} className={className}>  
+            {day.value}
+            {day.event && <div className='event'>{' '}</div>}
         </div> 
     );
 };
